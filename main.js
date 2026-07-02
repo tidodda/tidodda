@@ -16,14 +16,8 @@ const scrambleOpts = (text, extra = {}) => ({
 const tl = createTimeline({ delay: 100 });
 document.querySelectorAll('.scramble').forEach((el, i) => {
   tl.add(el, { innerHTML: scrambleText(scrambleOpts(el.dataset.text)) }, i * 40);
-});
-tl.init();
-
-const onHover = (sel) => {
-  const el = document.querySelector(sel);
   el.addEventListener('pointerenter', () => {
     animate(el, { innerHTML: scrambleText(scrambleOpts(el.dataset.text, { perturbation: 0.3 })) });
   });
-};
-onHover('h1');
-onHover('.sub');
+});
+tl.init();
