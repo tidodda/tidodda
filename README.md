@@ -1,16 +1,14 @@
-## Hi there 👋
+### hey, i'm tidodda (he/him)
 
-<!--
-**tidodda/tidodda** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+just a guy who likes to build stuff.
 
-Here are some ideas to get you started:
+- mostly backend — apis, algorithms, integrations
+- reverse engineering things for fun
+- music production in fl studio
+- some graphic design on the side
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+**reach me**
+- tidoda123@gmail.com
+- @tidodda on discord
+
+i just created this page and i'll add more content soon <3
