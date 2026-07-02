@@ -11,4 +11,4 @@ just a guy who likes to build stuff.
 - tidoda123@gmail.com
 - @tidodda on discord
 
-- more stuff coming soon..
+more stuff coming soon..
