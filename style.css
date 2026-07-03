@@ -160,9 +160,10 @@ footer {
   align-items: center;
   gap: 0.25rem;
 }
-.counter-wrap:hover { color: var(--fg-2); }
 #counter {
   padding: 0.5rem 1rem;
   margin: -0.5rem -1rem;
   cursor: pointer;
+  transition: color 0.15s;
 }
+#counter:hover { color: var(--fg-2); }
