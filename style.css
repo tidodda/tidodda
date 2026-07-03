@@ -172,6 +172,7 @@ footer {
 }
 .changelog-scroll::-webkit-scrollbar { width: 3px; }
 .changelog-scroll::-webkit-scrollbar-thumb { background: var(--fg-3); }
+
 .changelog-entry { margin-bottom: 16px; }
 .changelog-date {
   font-size: 0.7rem;
@@ -180,3 +181,11 @@ footer {
   margin-bottom: 4px;
 }
 .changelog-entry ul { margin-top: 4px; }
+
+.counter-wrap {
+  font-size: 0.875rem;
+  color: var(--fg-3);
+  cursor: pointer;
+  user-select: none;
+}
+.counter-wrap:hover { color: var(--fg-2); }

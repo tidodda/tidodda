@@ -1,0 +1,24 @@
+{
+  "name": "tidodda",
+  "version": "1.0.0",
+  "description": "<!-- **tidodda/tidodda** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tidodda/tidodda.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/tidodda/tidodda/issues"
+  },
+  "homepage": "https://github.com/tidodda/tidodda#readme",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.110.0"
+  }
+}

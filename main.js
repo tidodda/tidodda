@@ -30,3 +30,36 @@ document.querySelectorAll('.scramble').forEach((el, i) => {
   });
 });
 tl.init();
+
+// ===== counter =====
+const counterEl = document.getElementById('counter');
+
+function renderCount(count) {
+  const text = String(count);
+  counterEl.dataset.text = text;
+  animate(counterEl, { innerHTML: scrambleText(scrambleOpts(text)) });
+}
+
+async function loadCount() {
+  try {
+    const res = await fetch('/api/counter');
+    const data = await res.json();
+    renderCount(data.count);
+  } catch {
+    counterEl.textContent = 'err';
+  }
+}
+
+async function incrementCount() {
+  try {
+    const res = await fetch('/api/click', { method: 'POST' });
+    const data = await res.json();
+    renderCount(data.count);
+  } catch {
+    // silently ignore — keep showing last known count
+  }
+}
+
+counterEl.addEventListener('click', incrementCount);
+
+loadCount();
