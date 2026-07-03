@@ -167,3 +167,11 @@ footer {
   transition: color 0.15s;
 }
 #counter:hover { color: var(--fg-2); }
+
+body {
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
+}
