@@ -163,3 +163,20 @@ footer {
   color: var(--fg-3);
   padding: 2rem 0 1rem;
 }
+
+.changelog-scroll {
+  height: 140px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--fg-3) transparent;
+}
+.changelog-scroll::-webkit-scrollbar { width: 3px; }
+.changelog-scroll::-webkit-scrollbar-thumb { background: var(--fg-3); }
+.changelog-entry { margin-bottom: 16px; }
+.changelog-date {
+  font-size: 0.7rem;
+  color: var(--fg-3);
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+.changelog-entry ul { margin-top: 4px; }
