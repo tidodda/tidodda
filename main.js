@@ -21,3 +21,18 @@ document.querySelectorAll('.scramble').forEach((el, i) => {
   });
 });
 tl.init();
+
+async function loadChangelog() {
+  const res = await fetch('./changelog.md');
+  const text = await res.text();
+  const entries = text.split(/^## /m).filter(Boolean);
+  const container = document.getElementById('changelog-entries');
+  container.innerHTML = entries.map(entry => {
+    const [date, ...lines] = entry.trim().split('\n');
+    const items = lines.filter(l => l.trim()).map(l =>
+      `<li>${l.replace(/^[-*]\s*/, '')}</li>`
+    ).join('');
+    return `<div class="changelog-entry"><p class="changelog-date">${date.trim()}</p><ul>${items}</ul></div>`;
+  }).join('');
+}
+loadChangelog();
