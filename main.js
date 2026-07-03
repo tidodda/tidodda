@@ -51,6 +51,7 @@ async function loadCount() {
 async function incrementCount() {
   try {
     const res = await fetch('/api/click', { method: 'POST' });
+    if (!res.ok) return;
     const data = await res.json();
     renderCount(data.count);
   } catch {}
