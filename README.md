@@ -2,7 +2,7 @@
 
 just a guy who likes to build stuff.
 
-- mostly backend — apis, algorithms, integrations
+- mostly backend, apis, algorithms, integrations
 - reverse engineering things for fun
 - music production in fl studio
 - some graphic design on the side
