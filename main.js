@@ -35,9 +35,7 @@ tl.init();
 const counterEl = document.getElementById('counter');
 
 function renderCount(count) {
-  const text = String(count);
-  counterEl.dataset.text = text;
-  animate(counterEl, { innerHTML: scrambleText(scrambleOpts(text)) });
+  counterEl.textContent = String(count);
 }
 
 async function loadCount() {
@@ -55,9 +53,7 @@ async function incrementCount() {
     const res = await fetch('/api/click', { method: 'POST' });
     const data = await res.json();
     renderCount(data.count);
-  } catch {
-    // silently ignore — keep showing last known count
-  }
+  } catch {}
 }
 
 counterEl.addEventListener('click', incrementCount);
