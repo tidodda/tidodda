@@ -86,8 +86,8 @@ function next() {
 }
 
 function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('--fg') || '#fff';
+  ctx.fillStyle = '#1c1c1e';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);  ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('--fg') || '#fff';
   grid.forEach((row, y) =>
     row.forEach((cell, x) => {
       if (cell) ctx.fillRect(x*S, y*S, S-1, S-1);
