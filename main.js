@@ -11,13 +11,18 @@ async function loadChangelog() {
   const text = await res.text();
   const entries = text.split(/^## /m).filter(Boolean);
   const container = document.getElementById('changelog-entries');
+
   container.innerHTML = entries.map(entry => {
     const [date, ...lines] = entry.trim().split('\n');
     const items = lines.filter(l => l.trim()).map(l =>
       `<li class="scramble" data-text="${l.replace(/^[-*]\s*/, '')}">${l.replace(/^[-*]\s*/, '')}</li>`
     ).join('');
+
     return `<div class="changelog-entry"><p class="changelog-date scramble" data-text="${date.trim()}">${date.trim()}</p><ul>${items}</ul></div>`;
   }).join('');
+
+  const changelogScroll = document.querySelector('.changelog-scroll');
+  changelogScroll.scrollTop = changelogScroll.scrollHeight;
 }
 
 async function loadProjects() {
@@ -49,12 +54,15 @@ await loadChangelog();
 await loadProjects();
 
 const tl = createTimeline({ delay: 100 });
+
 document.querySelectorAll('.scramble').forEach((el, i) => {
   tl.add(el, { innerHTML: scrambleText(scrambleOpts(el.dataset.text)) }, i * 40);
+
   el.addEventListener('pointerenter', () => {
     animate(el, { innerHTML: scrambleText(scrambleOpts(el.dataset.text, { perturbation: 0.3 })) });
   });
 });
+
 tl.init();
 
 // ===== counter =====
@@ -77,7 +85,9 @@ async function loadCount() {
 async function incrementCount() {
   try {
     const res = await fetch('/api/click', { method: 'POST' });
+
     if (!res.ok) return;
+
     const data = await res.json();
     renderCount(data.count);
   } catch {}
