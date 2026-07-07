@@ -2,3 +2,5 @@
 created website :D
 ## 2025-07-03
 added a global counter
+## 2025-07-07
+added a projects tab
