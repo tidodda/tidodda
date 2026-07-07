@@ -31,7 +31,7 @@ main {
   padding: 80px 20px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
 }
 h1 {
   font-size: 3rem;
