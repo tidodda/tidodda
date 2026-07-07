@@ -35,9 +35,7 @@ async function loadProjects() {
     const description = lines.slice(2).join(' ').trim();
 
     return `
-      <a class="scramble" data-text="${name}" href="${link}" target="_blank" rel="noopener">
-        ${name}
-      </a>
+      <a class="scramble" data-text="${name}" href="${link}" target="_blank" rel="noopener">${name}</a>
       <span style="color: var(--fg-2); font-size: 0.875rem;">
         ${description}
       </span>
@@ -46,6 +44,7 @@ async function loadProjects() {
 }
 
 await loadChangelog();
+await loadProjects();
 
 const tl = createTimeline({ delay: 100 });
 document.querySelectorAll('.scramble').forEach((el, i) => {
