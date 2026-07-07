@@ -55,17 +55,14 @@ h1 {
   color: var(--fg-2);
   margin-top: 4px;
   cursor: default;
-  line-height: 1.2;
 }
 
 .label {
-  display: block;
   font-size: 0.7rem;
   color: var(--fg-3);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 10px;
-  line-height: 1;
 }
 
 p {
@@ -223,7 +220,6 @@ footer {
   color: var(--fg-3);
   letter-spacing: 0.05em;
   margin-bottom: 4px;
-  line-height: 1;
 }
 
 .changelog-entry ul {
@@ -248,19 +244,4 @@ footer {
 
 #counter:hover {
   color: var(--fg-2);
-}
-
-.scramble {
-  position: relative;
-  display: inline-block;
-  line-height: 1;
-}
-
-.scramble::before,
-.scramble::after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  line-height: 1;
-  pointer-events: none;
 }
