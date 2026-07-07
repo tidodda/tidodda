@@ -249,3 +249,18 @@ footer {
 #counter:hover {
   color: var(--fg-2);
 }
+
+.scramble {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+}
+
+.scramble::before,
+.scramble::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 1;
+  pointer-events: none;
+}
