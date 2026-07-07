@@ -52,7 +52,6 @@ h1 {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 10px;
-  line-height: 1;
 }
 p { font-size: 0.875rem; line-height: 1.6; color: var(--fg-2); cursor: default; }
 ul {
