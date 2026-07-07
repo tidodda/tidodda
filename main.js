@@ -20,6 +20,31 @@ async function loadChangelog() {
   }).join('');
 }
 
+async function loadProjects() {
+  const res = await fetch('./projects.md');
+  const text = await res.text();
+
+  const entries = text.split(/^## /m).filter(Boolean);
+  const container = document.getElementById('project-entries');
+
+  container.innerHTML = entries.map(entry => {
+    const lines = entry.trim().split('\n');
+
+    const name = lines[0].trim();
+    const link = lines[1].trim();
+    const description = lines.slice(2).join(' ').trim();
+
+    return `
+      <a class="scramble" data-text="${name}" href="${link}" target="_blank" rel="noopener">
+        ${name}
+      </a>
+      <span style="color: var(--fg-2); font-size: 0.875rem;">
+        ${description}
+      </span>
+    `;
+  }).join('');
+}
+
 await loadChangelog();
 
 const tl = createTimeline({ delay: 100 });
