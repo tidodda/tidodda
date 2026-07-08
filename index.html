@@ -9,21 +9,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
   <main>
     <div>
       <h1 class="scramble" data-text="tidodda.dev">tidodda.dev</h1>
       <p class="sub scramble" data-text="hi, i'm timothe doda">hi, i'm timothe doda</p>
     </div>
-
     <div>
       <div class="label scramble" data-text="about">about</div>
       <p class="scramble" data-text="hey! i'm tidodda (he/him), just a guy who likes to build stuff.">
         hey! i'm tidodda (he/him), just a guy who likes to build stuff.
       </p>
     </div>
-
     <ul>
       <li class="scramble" data-text="mostly backend, apis, algorithms, integrations">
         mostly backend, apis, algorithms, integrations
@@ -38,34 +35,30 @@
         some graphic design on the side
       </li>
     </ul>
-
     <div>
       <div class="label scramble" data-text="projects">projects</div>
-      <div class="col" id="project-entries"></div>
+      <div class="projects" id="project-entries"></div>
     </div>
-
     <div>
       <p class="label scramble" data-text="changelog">changelog</p>
       <div class="changelog-scroll">
         <div id="changelog-entries"></div>
       </div>
     </div>
-
     <div class="bottom-row">
       <div>
         <div class="label scramble" data-text="links">links</div>
         <div class="col">
           <a href="https://github.com/tidodda" target="_blank" rel="noopener">
-            github
+            github<span class="arrow">↗</span>
           </a>
         </div>
       </div>
-
       <div>
         <div class="label scramble" data-text="contact">contact</div>
         <div class="col">
           <a href="mailto:tidoda123@gmail.com">
-            tidoda123@gmail.com
+            tidoda123@gmail.com<span class="arrow">↗</span>
           </a>
           <span style="color: var(--fg-2); font-size: 0.875rem;">
             @tidodda on discord
@@ -73,7 +66,6 @@
         </div>
       </div>
     </div>
-
     <div class="counter-wrap">
       <span>[ <span id="counter">...</span> ]</span>
       <span style="color: gray; font-size: 0.85em;">(global counter)</span>
