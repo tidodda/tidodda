@@ -4,3 +4,4 @@ created website :D
 added a global counter
 ## 2025-07-07
 added a projects tab
+added an easter egg :o
