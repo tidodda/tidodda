@@ -12,10 +12,12 @@ async function loadChangelog() {
   container.innerHTML = entries.map(entry => {
     const [date, ...lines] = entry.trim().split('\n');
     const items = lines.filter(l => l.trim()).map(l =>
-      `<li class="scramble" data-text="${l.replace(/^[-*]\s*/, '')}">${l.replace(/^[-*]\s*/, '')}</li>`
+      <li class="scramble" data-text="${l.replace(/^[-*]\s*/, '')}">${l.replace(/^[-*]\s*/, '')}</li>
     ).join('');
-    return `<div class="changelog-entry"><p class="changelog-date scramble" data-text="${date.trim()}">${date.trim()}</p><ul>${items}</ul></div>`;
+    return <div class="changelog-entry"><p class="changelog-date scramble" data-text="${date.trim()}">${date.trim()}</p><ul>${items}</ul></div>;
   }).join('');
+  const changelogScroll = document.querySelector('.changelog-scroll');
+  changelogScroll.scrollTop = changelogScroll.scrollHeight;
 }
 async function loadProjects() {
   const res = await fetch('./projects.md');
@@ -23,18 +25,18 @@ async function loadProjects() {
   const entries = text.split(/^## /m).filter(Boolean);
   const container = document.getElementById('project-entries');
   container.innerHTML = entries.map(entry => {
-    const lines = entry.trim().split('\n').filter(l => l.trim());
+    const lines = entry.trim().split('\n');
     const name = lines[0].trim();
-    const repoLine = lines.find(l => l.trim().toLowerCase().startsWith('repo:'));
-    const repo = repoLine ? repoLine.split(/:(.+)/)[1].trim() : null;
-    const description = lines.slice(1).filter(l => l !== repoLine).join(' ').trim();
-    return `
-      <div class="project">
-        <span class="project-name scramble" data-text="${name}">${name}</span>
-        <span class="project-desc scramble" data-text="${description}">${description}</span>
-        ${repo ? `<a href="${repo}" target="_blank" rel="noopener">repo<span class="arrow">↗</span></a>` : ''}
-      </div>
-    `;
+    const link = lines[1].trim();
+    const description = lines.slice(2).join(' ').trim();
+    return 
+      <a href="${link}" target="_blank" rel="noopener">
+        ${name}
+      </a>
+      <span class="scramble" data-text="${description}" style="color: var(--fg-2); font-size: 0.875rem;">
+        ${description}
+      </span>
+    ;
   }).join('');
 }
 await loadChangelog();
