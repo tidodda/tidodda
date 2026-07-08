@@ -118,26 +118,32 @@ a:hover .arrow {
 .projects {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 8px;
 }
 .project {
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  gap: 1.5rem;
+  align-items: baseline;
+}
+.project::after {
+  display: none;
 }
 .project-name {
-  color: var(--fg);
-  font-size: 0.9rem;
-  font-weight: 700;
+  color: var(--fg-2);
+  font-size: 0.875rem;
+  white-space: nowrap;
+  transition: color 0.15s;
 }
 .project-desc {
   font-size: 0.875rem;
-  color: var(--fg-2);
+  color: var(--fg-3);
+  transition: color 0.15s;
 }
-.project a {
-  align-self: flex-start;
-  font-size: 0.8rem;
-  margin-top: 2px;
+.project:hover .project-name {
+  color: var(--fg);
+}
+.project:hover .project-desc {
+  color: var(--fg-2);
 }
 .bottom-row {
   display: flex;
@@ -157,6 +163,10 @@ a:hover .arrow {
   }
   .bottom-row {
     gap: 2rem;
+  }
+  .project {
+    flex-direction: column;
+    gap: 2px;
   }
 }
 footer {
