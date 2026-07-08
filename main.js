@@ -25,17 +25,17 @@ async function loadProjects() {
   const entries = text.split(/^## /m).filter(Boolean);
   const container = document.getElementById('project-entries');
   container.innerHTML = entries.map(entry => {
-    const lines = entry.trim().split('\n');
+    const lines = entry.trim().split('\n').filter(l => l.trim());
     const name = lines[0].trim();
-    const link = lines[1].trim();
-    const description = lines.slice(2).join(' ').trim();
+    const repoLine = lines.find(l => l.trim().toLowerCase().startsWith('repo:'));
+    const repo = repoLine ? repoLine.split(/:(.+)/)[1].trim() : null;
+    const description = lines.slice(1).filter(l => l !== repoLine).join(' ').trim();
     return `
-      <a href="${link}" target="_blank" rel="noopener">
-        ${name}<span class="arrow">↗</span>
-      </a>
-      <span class="scramble" data-text="${description}" style="color: var(--fg-2); font-size: 0.875rem;">
-        ${description}
-      </span>
+      <div class="project">
+        <span class="project-name scramble" data-text="${name}">${name}</span>
+        <span class="project-desc scramble" data-text="${description}">${description}</span>
+        ${repo ? `<a href="${repo}" target="_blank" rel="noopener">repo<span class="arrow">↗</span></a>` : ''}
+      </div>
     `;
   }).join('');
 }
