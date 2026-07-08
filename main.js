@@ -16,8 +16,6 @@ async function loadChangelog() {
     ).join('');
     return `<div class="changelog-entry"><p class="changelog-date scramble" data-text="${date.trim()}">${date.trim()}</p><ul>${items}</ul></div>`;
   }).join('');
-  const changelogScroll = document.querySelector('.changelog-scroll');
-  changelogScroll.scrollTop = changelogScroll.scrollHeight;
 }
 async function loadProjects() {
   const res = await fetch('./projects.md');
