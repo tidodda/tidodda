@@ -12,9 +12,9 @@ async function loadChangelog() {
   container.innerHTML = entries.map(entry => {
     const [date, ...lines] = entry.trim().split('\n');
     const items = lines.filter(l => l.trim()).map(l =>
-      <li class="scramble" data-text="${l.replace(/^[-*]\s*/, '')}">${l.replace(/^[-*]\s*/, '')}</li>
+      `<li class="scramble" data-text="${l.replace(/^[-*]\s*/, '')}">${l.replace(/^[-*]\s*/, '')}</li>`
     ).join('');
-    return <div class="changelog-entry"><p class="changelog-date scramble" data-text="${date.trim()}">${date.trim()}</p><ul>${items}</ul></div>;
+    return `<div class="changelog-entry"><p class="changelog-date scramble" data-text="${date.trim()}">${date.trim()}</p><ul>${items}</ul></div>`;
   }).join('');
   const changelogScroll = document.querySelector('.changelog-scroll');
   changelogScroll.scrollTop = changelogScroll.scrollHeight;
@@ -29,14 +29,14 @@ async function loadProjects() {
     const name = lines[0].trim();
     const link = lines[1].trim();
     const description = lines.slice(2).join(' ').trim();
-    return 
+    return `
       <a href="${link}" target="_blank" rel="noopener">
-        ${name}
+        ${name}<span class="arrow">↗</span>
       </a>
       <span class="scramble" data-text="${description}" style="color: var(--fg-2); font-size: 0.875rem;">
         ${description}
       </span>
-    ;
+    `;
   }).join('');
 }
 await loadChangelog();
