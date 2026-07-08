@@ -3,14 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 :root {
   --bg: #1c1c1e;
   --fg: #ededed;
   --fg-2: #888;
   --fg-3: #444;
 }
-
 body::before {
   content: '';
   position: fixed;
@@ -21,7 +19,6 @@ body::before {
   background-size: 200px 200px;
   z-index: 999;
 }
-
 body {
   background: var(--bg);
   color: var(--fg);
@@ -32,7 +29,6 @@ body {
   justify-content: flex-start;
   min-height: 100svh;
 }
-
 main {
   width: 100%;
   max-width: 640px;
@@ -41,7 +37,6 @@ main {
   flex-direction: column;
   gap: 24px;
 }
-
 h1 {
   font-size: 3rem;
   font-weight: 700;
@@ -49,14 +44,12 @@ h1 {
   letter-spacing: -0.04em;
   cursor: default;
 }
-
 .sub {
   font-size: 0.875rem;
   color: var(--fg-2);
   margin-top: 4px;
   cursor: default;
 }
-
 .label {
   font-size: 0.7rem;
   color: var(--fg-3);
@@ -64,21 +57,18 @@ h1 {
   text-transform: uppercase;
   margin-bottom: 10px;
 }
-
 p {
   font-size: 0.875rem;
   line-height: 1.6;
   color: var(--fg-2);
   cursor: default;
 }
-
 ul {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
-
 li {
   font-size: 0.875rem;
   line-height: 1.4;
@@ -87,14 +77,12 @@ li {
   position: relative;
   cursor: default;
 }
-
 li::before {
   content: '>';
   position: absolute;
   left: 0;
   color: var(--fg-3);
 }
-
 a {
   color: var(--fg-2);
   text-decoration: none;
@@ -102,7 +90,6 @@ a {
   display: inline-block;
   transition: color 0.15s;
 }
-
 a::after {
   content: '';
   position: absolute;
@@ -113,58 +100,50 @@ a::after {
   background: var(--fg);
   transition: width 0.2s ease;
 }
-
 a:hover {
   color: var(--fg);
 }
-
 a:hover::after {
   width: 100%;
 }
-
+.arrow {
+  font-size: 0.75em;
+  margin-left: 3px;
+  color: var(--fg-3);
+  display: inline-block;
+}
+a:hover .arrow {
+  color: var(--fg-2);
+}
 .projects {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 14px;
 }
-
 .project {
   display: flex;
-  gap: 1.5rem;
-  align-items: baseline;
+  flex-direction: column;
+  gap: 2px;
 }
-
-.project::after {
-  display: none;
-}
-
 .project-name {
-  color: var(--fg-2);
-  font-size: 0.875rem;
-  white-space: nowrap;
-  transition: color 0.15s;
+  color: var(--fg);
+  font-size: 0.9rem;
+  font-weight: 700;
 }
-
 .project-desc {
   font-size: 0.875rem;
-  color: var(--fg-3);
-  transition: color 0.15s;
-}
-
-.project:hover .project-name {
-  color: var(--fg);
-}
-
-.project:hover .project-desc {
   color: var(--fg-2);
 }
-
+.project a {
+  align-self: flex-start;
+  font-size: 0.8rem;
+  margin-top: 2px;
+}
 .bottom-row {
   display: flex;
   gap: 4rem;
   flex-wrap: wrap;
 }
-
 .col {
   display: flex;
   flex-direction: column;
@@ -172,22 +151,14 @@ a:hover::after {
   gap: 8px;
   margin-top: 8px;
 }
-
 @media (max-width: 480px) {
   h1 {
     font-size: 2.2rem;
   }
-
   .bottom-row {
     gap: 2rem;
   }
-
-  .project {
-    flex-direction: column;
-    gap: 2px;
-  }
 }
-
 footer {
   margin-top: auto;
   text-align: center;
@@ -195,37 +166,30 @@ footer {
   color: var(--fg-3);
   padding: 2rem 0 1rem;
 }
-
 .changelog-scroll {
   height: 140px;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--fg-3) transparent;
 }
-
 .changelog-scroll::-webkit-scrollbar {
   width: 3px;
 }
-
 .changelog-scroll::-webkit-scrollbar-thumb {
   background: var(--fg-3);
 }
-
 .changelog-entry {
   margin-bottom: 16px;
 }
-
 .changelog-date {
   font-size: 0.7rem;
   color: var(--fg-3);
   letter-spacing: 0.05em;
   margin-bottom: 4px;
 }
-
 .changelog-entry ul {
   margin-top: 4px;
 }
-
 .counter-wrap {
   font-size: 0.875rem;
   color: var(--fg-3);
@@ -234,14 +198,12 @@ footer {
   align-items: center;
   gap: 0.25rem;
 }
-
 #counter {
   padding: 0.5rem 1rem;
   margin: -0.5rem -1rem;
   cursor: pointer;
   transition: color 0.15s;
 }
-
 #counter:hover {
   color: var(--fg-2);
 }
