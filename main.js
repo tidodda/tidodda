@@ -25,14 +25,17 @@ async function loadProjects() {
   container.innerHTML = entries.map(entry => {
     const lines = entry.trim().split('\n').filter(l => l.trim());
     const name = lines[0].trim();
-    const repoLine = lines.find(l => l.trim().toLowerCase().startsWith('repo:'));
-    const repo = repoLine ? repoLine.split(/:(.+)/)[1].trim() : null;
-    const description = lines.slice(1).filter(l => l !== repoLine).join(' ').trim();
+    const linkLines = lines.slice(1).filter(l => /^[\w-]+:\s*\S+/.test(l.trim()));
+    const links = linkLines.map(l => {
+      const [label, ...rest] = l.split(':');
+      return { label: label.trim(), url: rest.join(':').trim() };
+    });
+    const description = lines.slice(1).filter(l => !linkLines.includes(l)).join(' ').trim();
     return `
       <div class="project">
         <span class="project-name scramble" data-text="${name}">${name}</span>
         <span class="project-desc scramble" data-text="${description}">${description}</span>
-        ${repo ? `<a href="${repo}" target="_blank" rel="noopener">repo<span class="arrow">↗</span></a>` : ''}
+        ${links.map(({ label, url }) => `<a href="${url}" target="_blank" rel="noopener">${label}<span class="arrow">↗</span></a>`).join('')}
       </div>
     `;
   }).join('');
