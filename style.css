@@ -57,8 +57,18 @@ body {
   align-items: center;
   justify-content: center;
   gap: 14px;
+  overflow: hidden;
   background: var(--bg);
   transition: opacity 550ms ease, visibility 550ms ease;
+}
+.site-loader::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
 }
 .site-loader.is-ready {
   opacity: 0;
@@ -66,10 +76,14 @@ body {
   pointer-events: none;
 }
 .loader-mark {
+  position: relative;
+  z-index: 1;
   color: var(--fg);
   font-size: 0.85rem;
 }
 .loader-track {
+  position: relative;
+  z-index: 1;
   width: min(180px, 60vw);
   height: 2px;
   overflow: hidden;

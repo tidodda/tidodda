@@ -43,6 +43,11 @@ async function loadProjects() {
 }
 await loadChangelog();
 await loadProjects();
+await document.fonts.ready;
+const remainingLoaderTime = Math.max(0, 750 - (performance.now() - loaderStartedAt));
+await new Promise(resolve => setTimeout(resolve, remainingLoaderTime));
+document.getElementById('site-loader').classList.add('is-ready');
+document.body.classList.add('is-loaded');
 const tl = createTimeline({ delay: 100 });
 document.querySelectorAll('.scramble').forEach((el, i) => {
   tl.add(el, { innerHTML: scrambleText(scrambleOpts(el.dataset.text)) }, i * 40);
@@ -51,11 +56,6 @@ document.querySelectorAll('.scramble').forEach((el, i) => {
   });
 });
 tl.init();
-await document.fonts.ready;
-const remainingLoaderTime = Math.max(0, 750 - (performance.now() - loaderStartedAt));
-await new Promise(resolve => setTimeout(resolve, remainingLoaderTime));
-document.getElementById('site-loader').classList.add('is-ready');
-document.body.classList.add('is-loaded');
 // ===== counter =====
 const counterEl = document.getElementById('counter');
 function renderCount(count) {
