@@ -1,4 +1,5 @@
 import { animate, createTimeline, scrambleText } from 'https://esm.sh/animejs';
+const loaderStartedAt = performance.now();
 const scrambleOpts = (text, extra = {}) => ({
   text, duration: 500, settleDuration: 250, perturbation: 0,
   chars: '', cursor: '░▒▓█', revealDelay: 0, revealRate: 50, settleRate: 30,
@@ -50,6 +51,11 @@ document.querySelectorAll('.scramble').forEach((el, i) => {
   });
 });
 tl.init();
+await document.fonts.ready;
+const remainingLoaderTime = Math.max(0, 750 - (performance.now() - loaderStartedAt));
+await new Promise(resolve => setTimeout(resolve, remainingLoaderTime));
+document.getElementById('site-loader').classList.add('is-ready');
+document.body.classList.add('is-loaded');
 // ===== counter =====
 const counterEl = document.getElementById('counter');
 function renderCount(count) {
