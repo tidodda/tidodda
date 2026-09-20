@@ -269,20 +269,3 @@ footer {
 .changelog-entry ul {
   margin-top: 4px;
 }
-.counter-wrap {
-  font-size: 0.875rem;
-  color: var(--fg-3);
-  user-select: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-}
-#counter {
-  padding: 0.5rem 1rem;
-  margin: -0.5rem -1rem;
-  cursor: pointer;
-  transition: color 0.15s;
-}
-#counter:hover {
-  color: var(--fg-2);
-}

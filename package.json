@@ -17,8 +17,5 @@
   "bugs": {
     "url": "https://github.com/tidodda/tidodda/issues"
   },
-  "homepage": "https://github.com/tidodda/tidodda#readme",
-  "dependencies": {
-    "@supabase/supabase-js": "^2.110.0"
-  }
+  "homepage": "https://github.com/tidodda/tidodda#readme"
 }

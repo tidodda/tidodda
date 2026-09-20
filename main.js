@@ -56,27 +56,3 @@ document.querySelectorAll('.scramble').forEach((el, i) => {
   });
 });
 tl.init();
-// ===== counter =====
-const counterEl = document.getElementById('counter');
-function renderCount(count) {
-  counterEl.textContent = String(count);
-}
-async function loadCount() {
-  try {
-    const res = await fetch('/api/counter');
-    const data = await res.json();
-    renderCount(data.count);
-  } catch {
-    counterEl.textContent = 'err';
-  }
-}
-async function incrementCount() {
-  try {
-    const res = await fetch('/api/click', { method: 'POST' });
-    if (!res.ok) return;
-    const data = await res.json();
-    renderCount(data.count);
-  } catch {}
-}
-counterEl.addEventListener('click', incrementCount);
-loadCount();

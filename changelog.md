@@ -1,3 +1,5 @@
+## 2026-09-20
+removed the global counter :(
 ## 2026-09-19
 added a loading screen
 added a custom scrolling bar
